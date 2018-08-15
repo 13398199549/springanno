@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+	<!-- 开启spring容器的自动扫描功能,扫描包下面的所有的JAVA类，将这些JAVA类中
+	凡是定义了@Component,@Service,@Repository,@Controller的JAVA类，纳入到spring
+	容器中来进行管理 -->
+    <context:component-scan base-package="org.framestudy.springanno"/>
+    
+    <!-- 开启切面的动态代理支持 -->
+    <aop:aspectj-autoproxy></aop:aspectj-autoproxy> 
+</beans>

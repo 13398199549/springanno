@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC 
+"-//mybatis.org//DTD Config 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+
+	<settings>
+		<!-- 设置添加日志 -->
+		<setting name="logImpl" value="LOG4J" />
+		
+		<!-- 延迟加载/懒加载 -->
+		<setting name="lazyLoadingEnabled" value="true"/>
+		<!-- 积极加载/预加载 -->
+		<setting name="aggressiveLazyLoading" value="false"/>
+	</settings>
+
+
+	<!-- 给JavaBean取类的类别名 -->
+	<typeAliases>
+		<package name="org.framestudy.springanno.bean" />
+	</typeAliases>
+
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<!-- 配置数据库连接信息 -->
+			<dataSource type="POOLED">
+				<!-- 驱动 -->
+				<property name="driver" value="com.mysql.jdbc.Driver" />
+				<!-- URL路径 -->
+				<!-- allowMultiQueries=true 该参数表示： 让JDBC连接支持一次同时操作多条SQL语句，常用于关联操作 -->
+				<!-- &amp; 代替& -->
+				<property name="url"
+					value="jdbc:mysql://localhost:3306/test?characterEncoding=utf-8&amp;allowMultiQueries=true" />
+				<!-- 用户名 -->
+				<property name="username" value="root" />
+				<!-- 密码 -->
+				<property name="password" value="admin" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<mappers>
+		<!-- 用于注册我们的mapper映射 -->
+		<package name="org.framestudy.springanno.logmag.mapper"/>
+		<package name="org.framestudy.springanno.usermag.mapper"/>
+	</mappers>
+
+</configuration>
